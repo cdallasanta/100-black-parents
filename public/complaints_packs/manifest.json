@@ -1,0 +1,14 @@
+{
+  "application.js": "/complaints_packs/js/application-877db63db5fbb49c9d3b.js",
+  "application.js.map": "/complaints_packs/js/application-877db63db5fbb49c9d3b.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/complaints_packs/js/application-877db63db5fbb49c9d3b.js"
+      ],
+      "js.map": [
+        "/complaints_packs/js/application-877db63db5fbb49c9d3b.js.map"
+      ]
+    }
+  }
+}
