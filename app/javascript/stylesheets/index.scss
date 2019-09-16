@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+// this and the follow .App are to get the footer stuck to the bottom of the page
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+.App {
+  padding-bottom: 100px;
+}
+
+header {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: lightskyblue;
+  margin: 5px 10px;
+
+  a {
+    color: lightskyblue;
+  }
+}
+
+footer {
+  height: 100px;
+  width: 100%;
+  background: black;
+  color: white;
+  position: absolute;
+  bottom: 0;
+}
+
+#school-page, #district-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0fr;
+  grid-template-rows: 0fr auto;
+  grid-template-areas: 
+  "title title title"
+  "blogs events sidebar";
+
+  background: lightblue;
+  min-height: 100vh;
+}
+
+#contact-div {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  * {
+    align-self: center;
+  }
+}
+
+#contact-info {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#top-banner {
+  grid-area: title;
+  text-align: center;
+  background: darkblue;
+  color: white;
+
+  .chunk {
+    display:inline-block;
+  }
+}
+
+#sidebar {
+  grid-area: sidebar;
+  margin: 10px 0px;
+
+  .link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.collapsible {
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  max-height: 0;
+}
+
+/* ad styling */
+.chunk {
+  background: lightcoral;
+  margin: 5px;
+}
+
+.panel-chunk {
+  width: 300px;
+  height: 250px;
+}
+
+.banner-chunk {
+  width: 728px;
+  height: 90px;
+}
