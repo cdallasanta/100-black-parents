@@ -13,20 +13,22 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <BrowserRouter>
-          <Header />
+        <div id="content-wrapper">
+          <BrowserRouter>
+            <Header />
 
-          <Switch>
-            <Route exact path="/" component={DistrictContainer} />
-            <Route exact path="/districts/:dist_id/selector" component={SchoolSelector} />
-            <Route exact path="/districts/:dist_id/schools/:school_id" component={SchoolContainer} />
-            <Route exact path="/districts/:dist_id" component={DistrictContainer} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
-          </Switch>
+            <Switch>
+              <Route exact path="/" component={DistrictContainer} />
+              <Route exact path="/districts/:dist_id/selector" component={SchoolSelector} />
+              <Route exact path="/districts/:dist_id/schools/:school_id" component={SchoolContainer} />
+              <Route exact path="/districts/:dist_id" component={DistrictContainer} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+            </Switch>
 
-          <Footer />
-        </BrowserRouter>
+            <Footer />
+          </BrowserRouter>
+        </div>
       </div>
     );
   }

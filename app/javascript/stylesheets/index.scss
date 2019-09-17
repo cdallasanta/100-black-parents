@@ -8,13 +8,13 @@ body {
   text-align: center;
 }
 
-// this and the following .App are to get the footer stuck to the bottom of the page
-#root {
+// this and the following #content-wrapper are to get the footer stuck to the bottom of the page
+.App {
   position: relative;
   min-height: 100vh;
 }
 
-.App {
+#content-wrapper {
   padding-bottom: 100px;
 }
 
