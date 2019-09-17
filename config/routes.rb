@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  default_url_options :host => "localhost:3000"
+
   root to: 'homepage#index'
 
   namespace :api do

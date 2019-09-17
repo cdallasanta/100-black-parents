@@ -143,6 +143,7 @@ School.create(
 # users
 u = User.create(name:"Chris", email:"c@email.com", permissions:"admin", password:"password")
 u.schools << School.find(1)
+binding.pry
 u.avatar.attach(io: File.open(Rails.root.join('test_avatars/1.png')), filename: '1.png')
 
 u = User.create(name:"Chukundi", email:"c@email.com", permissions:"admin", password:"password")
