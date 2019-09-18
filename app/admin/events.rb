@@ -1,19 +1,27 @@
 ActiveAdmin.register Event do
+  permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
-  # permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay, :eventable_type, :eventable_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:title, :organizer_id, :start, :end, :description, :approved, :allDay, :eventable_type, :eventable_id]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :user
+    column :start
+    column :end
+    column :approved
+    column "Association", :eventable
+    actions
+  end
+
+  # filter :eventable, label: "Association", :as => :select, :collection =>District.all.map { |d| [d.name, d.id]}
+  filter :eventable_of_District_type_name, as: :string, label: "District"
+  filter :eventable_of_School_type_name, as: :string, label: "School"
+  filter :user
+  filter :title
+  filter :start
+  filter :end
+  filter :description
+  filter :approved
   
   batch_action :approve do |ids|
     batch_action_collection.find(ids).each do |event|
