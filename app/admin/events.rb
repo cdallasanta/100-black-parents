@@ -13,7 +13,6 @@ ActiveAdmin.register Event do
     actions
   end
 
-  # filter :eventable, label: "Association", :as => :select, :collection =>District.all.map { |d| [d.name, d.id]}
   filter :eventable_of_District_type_name, as: :string, label: "District"
   filter :eventable_of_School_type_name, as: :string, label: "School"
   filter :user

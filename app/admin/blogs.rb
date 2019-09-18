@@ -14,5 +14,20 @@ ActiveAdmin.register Blog do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :author
+    column "Association", :blogable
+    actions
+  end
+
+  filter :blogable_of_District_type_name, as: :string, label: "District"
+  filter :blogable_of_School_type_name, as: :string, label: "School"
+  filter :author
+  filter :title
+  filter :content
   
 end
