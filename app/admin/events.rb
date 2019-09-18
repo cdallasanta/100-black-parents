@@ -1,4 +1,6 @@
 ActiveAdmin.register Event do
+  scope_to :current_user, unless: proc{ current_user.permissions == "admin" }
+
   permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay
 
   index do
@@ -10,8 +12,11 @@ ActiveAdmin.register Event do
     column :end
     column :approved
     column "Association", :eventable
+  
     actions
   end
+  scope("Approved") { |scope| scope.where(approved: true) }
+  scope("Not yet approved") { |scope| scope.where(approved: false) }
 
   filter :eventable_of_District_type_name, as: :string, label: "District"
   filter :eventable_of_School_type_name, as: :string, label: "School"
