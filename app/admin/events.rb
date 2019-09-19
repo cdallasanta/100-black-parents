@@ -1,5 +1,6 @@
 ActiveAdmin.register Event do
   scope_to :current_user, unless: proc{ current_user.permissions == "admin" }
+  
 
   permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay
 
