@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: school-sites-v2_development
+  database: one-hund-black-parents_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: school-sites-v2
+  #username: one-hund-black-parents
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: school-sites-v2_test
+  database: one-hund-black-parents_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: school-sites-v2_production
-  username: school-sites-v2
-  password: <%= ENV['SCHOOL-SITES-V2_DATABASE_PASSWORD'] %>
+  database: one-hund-black-parents_production
+  username: one-hund-black-parents
+  password: <%= ENV['ONE-HUND-BLACK-PARENTS_DATABASE_PASSWORD'] %>
