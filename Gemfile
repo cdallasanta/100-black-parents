@@ -42,7 +42,7 @@ gem 'draper'
 gem 'pundit'
 
 # Omni-auth for signing up through other sites
-gem 'omniauth'
+# gem 'omniauth' - will add later
 
 # AMS for serializing objects
 gem 'active_model_serializers', '~> 0.10.0'
@@ -52,7 +52,6 @@ gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
