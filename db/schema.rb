@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_230144) do
 
   create_table "blogs", force: :cascade do |t|
     t.integer "author_id"
-    t.text "title"
+    t.string "title"
     t.text "content"
     t.string "blogable_type"
     t.bigint "blogable_id"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_230144) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.text "title"
+    t.string "title"
     t.integer "organizer_id"
     t.datetime "start"
     t.datetime "end"
