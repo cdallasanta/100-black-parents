@@ -1,5 +1,5 @@
 ActiveAdmin.register Blog do
-  scope_to :current_user, unless: proc{ current_user.permissions == "admin" }
+  scope_to :current_user, association_method: :activeadmin_blogs
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

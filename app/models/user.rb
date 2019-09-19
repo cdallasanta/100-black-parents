@@ -17,7 +17,23 @@ class User < ApplicationRecord
     self.save
   end
 
-  def AA_events
-    Event.all.where(eventable: self.schools)
+  def activeadmin_events
+    if self.permissions == "admin"
+      Event.all
+    elsif self.permissions == "site_rep"
+      Event.all.where(eventable: self.schools).or(Event.all.where(organizer_id:self.id))
+    else
+      Event.all.where(organizer_id:self.id)
+    end
+  end
+
+  def activeadmin_blogs
+    if self.permissions == "admin"
+      Blog.all
+    elsif self.permissions == "site_rep"
+      Blog.all.where(blogable: self.schools).or(Blog.all.where(author:self))
+    else
+      Blog.all.where(author: self)
+    end
   end
 end
