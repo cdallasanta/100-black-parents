@@ -141,18 +141,21 @@ School.create(
 
 
 # users
-u = User.create(name:"Chris", email:"c@email.com", permissions:"admin", password:"password")
-u.schools << School.find(1)
-binding.pry
-u.avatar.attach(io: File.open(Rails.root.join('test_avatars/1.png')), filename: '1.png')
+c = User.create(name:"Chris", email:"c@email.com", permissions:"admin", password:"password")
+c.schools << School.find(1)
+c.avatar.attach(io: File.open(Rails.root.join('test_avatars/1.png')), filename: '1.png')
 
-u = User.create(name:"Chukundi", email:"ch@email.com", permissions:"admin", password:"password")
-u.schools << School.find(2)
-u.avatar.attach(io: File.open(Rails.root.join('test_avatars/2.jpg')), filename: '2.jpg')
+ch = User.create(name:"Chukundi", email:"ch@email.com", permissions:"admin", password:"password")
+ch.schools << School.find(2)
+ch.avatar.attach(io: File.open(Rails.root.join('test_avatars/2.jpg')), filename: '2.jpg')
 
-u = User.create(name:"Jeron", email:"j@email.com", permissions:"admin", password:"password")
-u.schools << School.find(3)
-u.avatar.attach(io: File.open(Rails.root.join('test_avatars/3.jpg')), filename: '3.jpg')
+j = User.create(name:"Jeron", email:"j@email.com", permissions:"admin", password:"password")
+j.schools << School.find(3)
+j.avatar.attach(io: File.open(Rails.root.join('test_avatars/3.jpg')), filename: '3.jpg')
+
+User.create(name:"Guest", email:"g@email.com", password:"password")
+u = User.create(name:"New Person", email:"np@email.com", password:"password", permissions:"site_rep")
+u.schools << School.all.last
 
 # events
 Event.create(eventable:District.find(1), title:"District Event", organizer_id:1, allDay: false, start:Time.parse("Sept 8 2019 10:19"), end:Time.parse("Sept 8 2019 11:19"))

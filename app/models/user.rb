@@ -10,11 +10,12 @@ class User < ApplicationRecord
   
   has_one_attached :avatar
 
-  after_save :set_permissions
+  before_save :set_permissions
 
   # TODO will need to be a unique email
 
   def set_permissions
     self.permissions ||= "guest"
+    self.save
   end
 end
