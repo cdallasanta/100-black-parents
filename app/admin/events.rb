@@ -1,6 +1,8 @@
 ActiveAdmin.register Event do
-  scope_to :current_user, unless: proc{ current_user.permissions == "admin" }
-  
+  # scope_to :current_user, unless: proc{ current_user.permissions == "admin" }
+  # scope_to do
+  #   Event.all.filter { |e| current_user.schools.include?(e.eventable)}
+  # end
 
   permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay
 
@@ -17,7 +19,12 @@ ActiveAdmin.register Event do
     actions
   end
   
-  scope("All Events") { |scope| scope }
+  scope "All Events", if: -> {current_user.permissions == "admin"} do |scope|
+    scope
+  end
+  scope "All Events", if: -> {current_user.permissions == "site_rep"} do |scope|
+    scope.filter { |e| current_user.schools.include?(e.eventable)}
+  end
   scope("Approved") { |scope| scope.where(approved: true) }
   scope("Not yet approved") { |scope| scope.where(approved: false) }
 

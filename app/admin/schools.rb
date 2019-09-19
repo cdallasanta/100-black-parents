@@ -24,9 +24,13 @@ ActiveAdmin.register School do
     column :district
     column :site_rep
   end
+  
+  scope "All Schools", if: -> {current_user.permissions == "admin"} do |scope|
+    scope
+  end
+  scope("My Schools") { |scope| scope.where(site_rep: current_user) }
 
   filter :name
-  filter :grade_level
-  # TODO above as: select
+  filter :grade_level, as: :select
   filter :site_rep
 end
