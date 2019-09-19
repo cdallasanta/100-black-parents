@@ -154,7 +154,7 @@ j.schools << School.find(3)
 j.avatar.attach(io: File.open(Rails.root.join('test_avatars/3.jpg')), filename: '3.jpg')
 
 User.create(name:"Guest", email:"g@email.com", password:"password")
-u = User.create(name:"New Person", email:"np@email.com", password:"password", permissions:"site_rep")
+u = User.create(name:"Site Rep", email:"sr@email.com", password:"password", permissions:"site_rep")
 u.schools << School.all.last
 
 # events
