@@ -1,8 +1,6 @@
 ActiveAdmin.register Event do
   # scope_to :current_user, unless: proc{ current_user.permissions == "admin" }
-  # scope_to do
-  #   Event.all.filter { |e| current_user.schools.include?(e.eventable)}
-  # end
+  scope_to :current_user, association_method: :AA_events
 
   permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay
 
@@ -19,16 +17,12 @@ ActiveAdmin.register Event do
     actions
   end
   
-  scope "All Events", if: -> {current_user.permissions == "admin"} do |scope|
-    scope
-  end
-  scope "All Events", if: -> {current_user.permissions == "site_rep"} do |scope|
-    scope.filter { |e| current_user.schools.include?(e.eventable)}
-  end
+  scope("All Events") { |scope| scope }
   scope("Approved") { |scope| scope.where(approved: true) }
   scope("Not yet approved") { |scope| scope.where(approved: false) }
 
-  filter :eventable_of_District_type_name, as: :string, label: "District"
+  # This filter is currently not needed, since we only have one district
+  # filter :eventable_of_District_type_name, as: :string, label: "District"
   filter :eventable_of_School_type_name, as: :string, label: "School"
   filter :user
   filter :title

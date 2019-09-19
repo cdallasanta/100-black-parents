@@ -16,4 +16,8 @@ class User < ApplicationRecord
     self.permissions ||= "guest"
     self.save
   end
+
+  def AA_events
+    Event.all.where(eventable: self.schools)
+  end
 end
