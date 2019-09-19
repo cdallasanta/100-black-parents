@@ -8,7 +8,7 @@ ActiveAdmin.register Event do
     selectable_column
     id_column
     column :title
-    column :user
+    column "Organizer", :user
     column :start
     column :end
     column :approved
@@ -16,6 +16,8 @@ ActiveAdmin.register Event do
   
     actions
   end
+  
+  scope("All Events") { |scope| scope }
   scope("Approved") { |scope| scope.where(approved: true) }
   scope("Not yet approved") { |scope| scope.where(approved: false) }
 

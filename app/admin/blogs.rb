@@ -1,4 +1,5 @@
 ActiveAdmin.register Blog do
+  scope_to :current_user, unless: proc{ current_user.permissions == "admin" }
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -24,7 +25,8 @@ ActiveAdmin.register Blog do
     actions
   end
 
-  filter :blogable_of_District_type_name, as: :string, label: "District"
+  # This filter is currently not needed, since we only have one district
+  # filter :blogable_of_District_type_name, as: :string, label: "District"
   filter :blogable_of_School_type_name, as: :string, label: "School"
   filter :author
   filter :title
