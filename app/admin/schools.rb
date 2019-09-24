@@ -18,7 +18,6 @@ ActiveAdmin.register School do
   
   index do
     selectable_column
-    id_column
     column :name
     column :grade_level
     column :district

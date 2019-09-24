@@ -7,7 +7,7 @@ ActiveAdmin.register Event do
     selectable_column
     id_column
     column :title
-    column "Organizer", :user
+    column :organizer
     column :start
     column :end
     column :approved
@@ -26,7 +26,7 @@ ActiveAdmin.register Event do
   # This filter is currently not needed, since we only have one district
   # filter :eventable_of_District_type_name, as: :string, label: "District"
   filter :eventable_of_School_type_name, as: :string, label: "School"
-  filter :organizer
+  filter :organizer_name, as: :string
   filter :title
   filter :start
   filter :end
