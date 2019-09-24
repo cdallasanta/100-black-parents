@@ -5,7 +5,7 @@ import SchoolContainer from './containers/SchoolContainer';
 import DistrictContainer from './containers/DistrictContainer';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Header from './components/header';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import './stylesheets/index.scss'
 

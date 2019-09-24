@@ -17,6 +17,18 @@ class SchoolContainer extends React.Component {
     }
   }
 
+  siteRepClick = e => {
+    e.preventDefault();
+    debugger;
+    // $.ajax({
+    //   type: 'POST',
+    //   url: 'http://localhost:3001/api/requests',
+    //   data: {
+    //     user_id: this.state.name,
+    //     school_id: this.state.email
+    //   },
+  }
+
   componentDidMount(){
     const dist_id = this.props.match.params.dist_id
     const school_id = this.props.match.params.school_id
@@ -44,7 +56,7 @@ class SchoolContainer extends React.Component {
       <div id="school-page">
         <div id="top-banner">
           <h1>{this.state.school_data.name}</h1>
-          <ContactInfo contact={this.state.school_data.site_rep} />
+          <ContactInfo contact={this.state.school_data.site_rep} siteRepClick={this.siteRepClick} />
           <Ad size="banner" />
         </div>
         <div id="sidebar">
