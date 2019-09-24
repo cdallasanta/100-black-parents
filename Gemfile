@@ -35,12 +35,6 @@ gem "devise", ">= 4.7.1"
 # Active_admin for approvals and management
 gem 'activeadmin'
 
-# Plus integrations with:
-# gem 'devise' - already added above
-gem 'cancancan'
-gem 'draper'
-gem 'pundit'
-
 # Omni-auth for signing up through other sites
 # gem 'omniauth' - will add later
 
