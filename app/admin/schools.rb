@@ -32,5 +32,5 @@ ActiveAdmin.register School do
 
   filter :name
   filter :grade_level, as: :select
-  filter :site_rep
+  filter :site_rep_name, as: :string
 end
