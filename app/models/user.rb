@@ -18,12 +18,13 @@ class User < ApplicationRecord
   end
 
   def activeadmin_events
+    events = Event.all.where("start > ?", Date.today)
     if self.permissions == "admin"
-      Event.all
+      events
     elsif self.permissions == "site_rep"
-      Event.all.where(eventable: self.schools).or(Event.all.where(organizer_id:self.id))
+      events.where(eventable: self.schools).or(events.where(organizer_id:self.id))
     else
-      Event.all.where(organizer_id:self.id)
+      events.where(organizer_id:self.id)
     end
   end
 
