@@ -22,7 +22,7 @@ export default class Login extends React.Component {
 
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/auth/sign_in',
+      url: 'http://localhost:3000/admin/login',
       data: {
         email: this.state.email,
         password: this.state.password

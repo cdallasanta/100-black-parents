@@ -22,7 +22,7 @@ export default class Signup extends React.Component {
 
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3001/auth',
+      url: 'http://localhost:3000/admin',
       data: {
         name: this.state.name,
         email: this.state.email,
