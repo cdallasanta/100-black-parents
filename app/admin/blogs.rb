@@ -25,11 +25,10 @@ ActiveAdmin.register Blog do
     actions
   end
 
-  # This filter is currently not needed, since we only have one district
+  # This first filter is currently not needed, since we only have one district
   # filter :blogable_of_District_type_name, as: :string, label: "District"
   filter :blogable_of_School_type_name, as: :string, label: "School"
-  filter :author
+  filter :author_name, as: :string
   filter :title
   filter :content
-  
 end
