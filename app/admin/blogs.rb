@@ -26,6 +26,12 @@ ActiveAdmin.register Blog do
     actions
   end
 
+  scope "All Blogs", if: proc{ current_user.permissions == "admin" } do |scope|
+    scope
+  end
+  scope("My schools' blogs") { |scope| scope.where(blogable: current_user.schools) }
+  scope("My blogs") { |scope| scope.where(author: current_user) }
+
   # This first filter is currently not needed, since we only have one district
   # filter :blogable_of_District_type_name, as: :string, label: "District"
   filter :blogable_of_School_type_name, as: :string, label: "School"
