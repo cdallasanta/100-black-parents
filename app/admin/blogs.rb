@@ -16,12 +16,13 @@ ActiveAdmin.register Blog do
   #   permitted
   # end
 
+  config.sort_order = 'created_at_asc'
   index do
     selectable_column
-    id_column
     column :title
     column :author
     column "Association", :blogable
+    column "Posted on", :created_at
     actions
   end
 
