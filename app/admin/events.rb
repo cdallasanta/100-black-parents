@@ -26,7 +26,7 @@ ActiveAdmin.register Event do
   # This filter is currently not needed, since we only have one district
   # filter :eventable_of_District_type_name, as: :string, label: "District"
   filter :eventable_of_School_type_name, as: :string, label: "School"
-  filter :user
+  filter :organizer
   filter :title
   filter :start
   filter :end
@@ -38,5 +38,12 @@ ActiveAdmin.register Event do
       event.update(approved: true)
     end
     redirect_to collection_path, alert: "The events have been approved."
+  end
+
+  batch_action :disapprove do |ids|
+    batch_action_collection.find(ids).each do |event|
+      event.update(approved: false)
+    end
+    redirect_to collection_path, alert: "The events have been disapproved."
   end
 end

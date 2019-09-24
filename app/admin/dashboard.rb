@@ -18,9 +18,10 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Events that need approval" do
           table_for Event.where(approved:false) do
-            column("Organizer") {|event| event.organizer}
-            column("Association") {|event| event.eventable}
-            column("Title") {|event| link_to(event.title, admin_event_path(event))}
+            column "Organizer", :organizer
+            column "Association", :eventable
+            column "Title", :title
+            column ("Approve") {|event| link_to(event.title, admin_event_path(event))}
           end
         end
       end
