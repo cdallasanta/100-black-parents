@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
   permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay
 
   config.sort_order = 'start_asc'
-  index do
+  index title: "Upcoming Events" do
     selectable_column
     column :title
     column :organizer

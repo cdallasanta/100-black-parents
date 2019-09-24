@@ -17,7 +17,7 @@ ActiveAdmin.register_page "Dashboard" do
 
       column do
         panel "Events that need approval" do
-          table_for Event.where(approved:false) do
+          table_for Event.all.where("start > ? AND approved = ?", Date.today, false) do
             column "Organizer", :organizer
             column "Association", :eventable
             column "Title", :title
