@@ -16,6 +16,7 @@ ActiveAdmin.register School do
   #   permitted
   # end
   
+  config.sort_order = 'name_desc'
   index do
     selectable_column
     column :name
