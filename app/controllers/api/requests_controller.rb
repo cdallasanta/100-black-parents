@@ -1,6 +1,10 @@
 class Api::RequestsController < ApiController
   before_action :authenticate_user!
 
+  def index
+    binding.pry
+  end
+
   def create
     binding.pry
     req = Request.create(request_params)
