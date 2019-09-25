@@ -6,7 +6,7 @@ class Api::RequestsController < ApiController
   end
 
   def create
-    binding.pry
+    params["user_id"] ||= current_user.id
     req = Request.create(request_params)
     render json: req
   end

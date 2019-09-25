@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :users do 
       get :avatar, on: :member
     end
-    resources :requests, only: [:create]
+    resources :requests, only: [:create, :index]
 
     resources :districts do
       resources :schools

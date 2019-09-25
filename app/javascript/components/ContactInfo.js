@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-const ContactInfo = ({contact, siteRepClick, request, s_id}) => {
+const ContactInfo = ({contact, siteRepClick, request}) => {
   function renderContact() {
     if (contact){
       return contactDiv();
@@ -14,7 +14,7 @@ const ContactInfo = ({contact, siteRepClick, request, s_id}) => {
     } else {
       return (
         <div>
-          There is no site representative for this site. Claim it <button type="button" onClick={e => siteRepClick(e, s_id)}>here!</button>
+          There is no site representative for this site. Claim it <button type="button" onClick={e => siteRepClick(e)}>here!</button>
         </div>
       );
     }

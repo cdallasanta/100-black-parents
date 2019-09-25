@@ -18,15 +18,19 @@ class SchoolContainer extends React.Component {
     }
   }
 
-  siteRepClick(e, s_id) {
+  siteRepClick(e) {
     e.preventDefault();
-    debugger;
     $.ajax({
       type: 'POST',
       url: 'http://localhost:3000/api/requests',
       data: {
-        user_id: 1,
-        school_id: s_id
+        school_id: this.state.school_data.id
+      },
+      success: resp => {
+        this.setState({school_data:{
+          ...this.state.school_data,
+          request: resp
+        }})
       }
     })
   }
@@ -61,8 +65,7 @@ class SchoolContainer extends React.Component {
           <ContactInfo
             contact={this.state.school_data.site_rep}
             request={this.state.school_data.request}
-            siteRepClick={this.siteRepClick}
-            s_id={this.state.school_data.id} />
+            siteRepClick={this.siteRepClick.bind(this)} />
           <Ad size="banner" />
         </div>
         <div id="sidebar">
