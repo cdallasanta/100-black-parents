@@ -1,13 +1,13 @@
 class Api::RequestsController < ApiController
   def create
-    binding.pry
-    Request.create(request_params)
+    r = Request.create(request_params)
+    render json: r
   end
 
   private
 
   def request_params
-    params.require(:data).permit(
+    params.permit(
       :user_id,
       :school_id
     )

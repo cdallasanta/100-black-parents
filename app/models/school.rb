@@ -4,5 +4,5 @@ class School < ApplicationRecord
   
   has_many :events, as: :eventable
   has_many :blogs, as: :blogable
-  has_one :requests
+  has_one :request
 end

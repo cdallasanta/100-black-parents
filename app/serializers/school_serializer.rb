@@ -3,6 +3,8 @@ class SchoolSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
   
   attributes :id, :name, :grade_level, :address, :phone, :homepage_url, :blogs, :events, :site_rep
+  
+  has_one :request
 
   belongs_to :district
 
