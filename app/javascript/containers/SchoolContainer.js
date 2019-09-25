@@ -22,7 +22,7 @@ class SchoolContainer extends React.Component {
     e.preventDefault();
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:3000/api/requests',
+      url: '/api/requests',
       data: {
         school_id: this.state.school_data.id
       },
