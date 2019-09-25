@@ -18,8 +18,8 @@ ActiveAdmin.register Request do
 
   index do
     selectable_column
-    column :school_name
-    column :user_name
+    column :school
+    column :user
   end
   
 end
