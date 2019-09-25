@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SchoolSelector from './components/SchoolSelector';
 import SchoolContainer from './containers/SchoolContainer';
 import DistrictContainer from './containers/DistrictContainer';
-import Header from './components/Header';
 import Footer from './components/Footer';
 import './stylesheets/index.scss'
 
