@@ -8,9 +8,9 @@ const Header = () => {
     <header>
       { // check if there is user data stored in the cookies, and offer the right links
         sessionStorage.user ?
-          <div><Link to="/logout">Log out</Link></div>
+          <div><Link to="/users/sign_out">Log out</Link></div>
         :
-          <div><Link to="/login">Log in</Link> or <Link to="/signup">Sign up</Link></div>
+          <div><Link to="/users/sign_in">Log in</Link> or <Link to="/signup">Sign up</Link></div>
       }
     </header>
   )
