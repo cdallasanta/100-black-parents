@@ -2,7 +2,7 @@ import React from 'react';
 
 const Ad = ({size}) => {
   return(
-    <div className={`chunk ${size}-chunk`}>
+    <div className={`ad ${size}`}>
       {size} Ad
     </div>
   )
