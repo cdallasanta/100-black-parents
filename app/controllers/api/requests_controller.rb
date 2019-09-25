@@ -1,7 +1,10 @@
 class Api::RequestsController < ApiController
+  before_action :authenticate_user!
+
   def create
-    r = Request.create(request_params)
-    render json: r
+    binding.pry
+    req = Request.create(request_params)
+    render json: req
   end
 
   private

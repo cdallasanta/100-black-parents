@@ -5,6 +5,7 @@ import Ad from '../components/Ad';
 import BlogList from '../containers/BlogList';
 import EventsList from '../containers/EventsList';
 import SchoolSelector from '../components/SchoolSelector';
+import { thisExpression } from '@babel/types';
 
 class SchoolContainer extends React.Component {
   state = {
@@ -17,7 +18,7 @@ class SchoolContainer extends React.Component {
     }
   }
 
-  siteRepClick = e => {
+  siteRepClick(e, s_id) {
     e.preventDefault();
     debugger;
     $.ajax({
@@ -25,7 +26,7 @@ class SchoolContainer extends React.Component {
       url: 'http://localhost:3000/api/requests',
       data: {
         user_id: 1,
-        school_id: 11
+        school_id: s_id
       }
     })
   }
@@ -60,7 +61,8 @@ class SchoolContainer extends React.Component {
           <ContactInfo
             contact={this.state.school_data.site_rep}
             request={this.state.school_data.request}
-            siteRepClick={this.siteRepClick} />
+            siteRepClick={this.siteRepClick}
+            s_id={this.state.school_data.id} />
           <Ad size="banner" />
         </div>
         <div id="sidebar">
