@@ -5,7 +5,6 @@ import Ad from '../components/Ad';
 import BlogList from '../containers/BlogList';
 import EventsList from '../containers/EventsList';
 import SchoolSelector from '../components/SchoolSelector';
-import { thisExpression } from '@babel/types';
 
 class SchoolContainer extends React.Component {
   state = {
