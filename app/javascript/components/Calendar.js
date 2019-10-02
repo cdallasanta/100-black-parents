@@ -7,16 +7,37 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 const localizer = momentLocalizer(moment);
 
 class eventCalendar extends React.Component {
+  state = {
+    schoolName: "",
+    events: []
+  }
+
+  componentDidMount(){
+    let school_id = this.props.match.params.dist_id;
+
+    fetch(`/api/events/${school_id}`)
+      .then(resp => resp.json())
+      .then(data => {
+        this.setState({events: data});
+      })
+  }
+
   render() {
     return (
-      <div style={{ height: '90vh', width: '90vw'}}>
-        <Calendar
-          events={[]}
-          startAccessor="start"
-          endAccessor="end"
-          defaultDate={moment().toDate()}
-          localizer={localizer}
-        />
+      <div>
+        <h1>{this.state.SchoolName} Calendar</h1>
+        <div style={{
+            height: '90vh',
+            width: '90vw',
+            margin: 'auto'}}>
+          <Calendar
+            events={this.state.events}
+            startAccessor="start"
+            endAccessor="end"
+            defaultDate={moment().toDate()}
+            localizer={localizer}
+          />
+        </div>
       </div>
     );
   }
