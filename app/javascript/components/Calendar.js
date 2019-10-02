@@ -13,9 +13,9 @@ class eventCalendar extends React.Component {
   }
 
   componentDidMount(){
-    let school_id = this.props.match.params.dist_id;
+    let school_id = this.props.match.params.school_id;
 
-    fetch(`/api/events/${school_id}`)
+    fetch(`/api/districts/1/schools/${school_id}/events`)
       .then(resp => resp.json())
       .then(data => {
         this.setState({events: data});

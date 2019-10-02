@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   root to: 'homepage#index'
 
   namespace :api do
-    resources :events
     resources :blogs
     resources :users do 
       get :avatar, on: :member
@@ -15,7 +14,9 @@ Rails.application.routes.draw do
     resources :requests, only: [:create, :index]
 
     resources :districts do
-      resources :schools
+      resources :schools do
+        resources :events
+      end
     end
   end
 
