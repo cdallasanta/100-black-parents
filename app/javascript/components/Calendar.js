@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import EventForm from './EventForm';
+import '../stylesheets/calendar.scss'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -51,7 +52,11 @@ End: ${endString}`
         end: slotInfo.end
       },
       showEventForm: true
-    }
+    })
+  }
+
+  closeOnClick = () => {
+    this.setState({showEventForm: false})
   }
 
   render() {
@@ -73,7 +78,11 @@ End: ${endString}`
             onSelectSlot={this.showEventForm}
           />
 
-          {this.state.showEventForm ? <EventForm eventData={this.state.eventData} /> : null}
+          {this.state.showEventForm ?
+            <EventForm
+              eventData={this.state.eventData}
+              closeOnClick={this.closeOnClick}
+            /> : null}
         </div>
       </div>
     );
