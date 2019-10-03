@@ -24,6 +24,23 @@ class eventCalendar extends React.Component {
       })
   }
 
+  eventTooltip = eventData => {
+    const startDate = new Date(eventData.start)
+    const startHours = startDate.getHours() > 12 ? startDate.getHours() - 12 : startDate.getHours();
+    const startString = `${startHours}:${startDate.getMinutes()}${startDate.getHours() > 12 ? "pm": "am"}`
+
+    const endDate = new Date(eventData.end)
+    const endHours = endDate.getHours() > 12 ? endDate.getHours() - 12 : endDate.getHours();
+    const endString = `${endHours}:${endDate.getMinutes()}${endDate.getHours() > 12 ? "pm": "am"}`
+
+
+    return (
+`${eventData.location}
+Start: ${startString}
+End: ${endString}`
+    )
+  }
+
   render() {
     return (
       <div>
@@ -38,6 +55,7 @@ class eventCalendar extends React.Component {
             endAccessor="end"
             defaultDate={moment().toDate()}
             localizer={localizer}
+            tooltipAccessor={this.eventTooltip}
           />
         </div>
       </div>
