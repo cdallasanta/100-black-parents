@@ -28,6 +28,4 @@ class SchoolSerializer < ActiveModel::Serializer
   def events
     [*object.events, *object.district.events]
   end
-
-  
 end

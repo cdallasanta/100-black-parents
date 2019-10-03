@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     resources :districts do
       resources :schools do
-        resources :events
+        resources :events, only: [:index]
       end
     end
   end
