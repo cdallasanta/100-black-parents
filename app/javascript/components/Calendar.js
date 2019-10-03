@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
+import EventForm from './EventForm';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -10,7 +11,9 @@ class eventCalendar extends React.Component {
   state = {
     school_data: {
       name: "",
-      events: []
+      events: [],
+      showEventForm: false,
+      eventFormData: {}
     }
   }
 
@@ -41,6 +44,16 @@ End: ${endString}`
     )
   }
 
+  showEventForm = slotInfo => {
+    this.setState({
+      eventFormData:{
+        start: slotInfo.start,
+        end: slotInfo.end
+      },
+      showEventForm: true
+    }
+  }
+
   render() {
     return (
       <div>
@@ -56,7 +69,11 @@ End: ${endString}`
             defaultDate={moment().toDate()}
             localizer={localizer}
             tooltipAccessor={this.eventTooltip}
+            selectable={true}
+            onSelectSlot={this.showEventForm}
           />
+
+          {this.state.showEventForm ? <EventForm eventData={this.state.eventData} /> : null}
         </div>
       </div>
     );
