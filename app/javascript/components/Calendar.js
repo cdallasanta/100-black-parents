@@ -2,7 +2,7 @@ import React from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import EventForm from './EventForm';
-import '../stylesheets/calendar.scss'
+import '../stylesheets/calendar.scss';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -80,7 +80,7 @@ End: ${endString}`
 
           {this.state.showEventForm ?
             <EventForm
-              eventData={this.state.eventData}
+              eventData={this.state.eventFormData}
               closeOnClick={this.closeOnClick}
             /> : null}
         </div>
