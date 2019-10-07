@@ -5,6 +5,7 @@ class EventForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      name:"",
       start: props.eventData.start,
       end: props.eventData.end
     }
@@ -12,6 +13,10 @@ class EventForm extends React.Component {
 
   onStartChange = date => this.setState({ start: date })
   onEndChange = date => this.setState({ end: date })
+  onClick = e =>{
+    e.preventDefault();
+    debugger;
+  }
 
   render(){
     return(
@@ -19,19 +24,26 @@ class EventForm extends React.Component {
         <div className={"eventForm"}>
           <h3>New Event</h3>
           <form>
-            Event Name: <input type="text" name="name" /><br />
+            Event Name: <input type="text" name="name" value={this.state.name} /><br />
             Event Start: <DateTimePicker
               calendarIcon={null}
               required={true}
               value={this.state.start}
               onChange={this.onStartChange}
+              disableClock={true}
+              calendarType={"US"}
             /><br />
             Event End: <DateTimePicker
               calendarIcon={null}
               required={true}
               value={this.state.end}
               onChange={this.onEndChange}
-            />
+              disableClock={true}
+              calendarType={"US"}
+            /><br />
+
+
+            <input type="submit" value="Create Event" onClick={e => this.onClick(e)} />
           </form>
         </div>
       </div>
