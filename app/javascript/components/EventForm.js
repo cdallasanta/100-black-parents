@@ -10,7 +10,8 @@ class EventForm extends React.Component {
     }
   }
 
-  onChange = date => this.setState({ start: date })
+  onStartChange = date => this.setState({ start: date })
+  onEndChange = date => this.setState({ end: date })
 
   render(){
     return(
@@ -23,13 +24,13 @@ class EventForm extends React.Component {
               calendarIcon={null}
               required={true}
               value={this.state.start}
-            onChange={this.onChange}
+              onChange={this.onStartChange}
             /><br />
             Event End: <DateTimePicker
               calendarIcon={null}
               required={true}
               value={this.state.end}
-              onChange={this.onChange}
+              onChange={this.onEndChange}
             />
           </form>
         </div>
