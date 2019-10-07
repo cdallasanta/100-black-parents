@@ -55,8 +55,10 @@ End: ${endString}`
     })
   }
 
-  closeOnClick = () => {
-    this.setState({showEventForm: false})
+  closeOnClick = e => {
+    if (e.target.id === "eventGreyBackground") {
+      this.setState({showEventForm: false})
+    }
   }
 
   render() {
