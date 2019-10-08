@@ -26,6 +26,6 @@ class SchoolSerializer < ActiveModel::Serializer
   end
   
   def events
-    [*object.events, *object.district.events]
+    [*object.events.where(approved:true), *object.district.events.where(approved:true)]
   end
 end

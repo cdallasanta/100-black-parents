@@ -6,28 +6,18 @@ class EventForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      name:"",
+      title:"",
       start: props.eventData.start,
       end: props.eventData.end
     }
   }
 
   onStartChange = date => this.setState({ start: date })
+  onTitleChange = e => this.setState({ title: e.target.value })
   onEndChange = date => this.setState({ end: date })
   onClick = e =>{
     e.preventDefault();
-    const dist_id = this.props.match.params.dist_id
-    const school_id = this.props.match.params.school_id
-    $.ajax({
-      type: 'POST',
-      url: `/api/districts/${dist_id}/schools/${school_id}/events`,
-      data: {
-        event: this.state
-      },
-      success: resp => {
-        debugger;
-        }
-      })
+    this.props.createEvent(this.state);
   }
 
   render(){
@@ -36,7 +26,10 @@ class EventForm extends React.Component {
         <div className={"eventForm"}>
           <h3>New Event</h3>
           <form>
-            Event Name: <input type="text" name="name" value={this.state.name} /><br />
+            Event Title: <input
+              type="text" name="title"
+              value={this.state.name}
+              onChange={this.onTitleChange} /><br />
             Event Start: <DateTimePicker
               calendarIcon={null}
               required={true}

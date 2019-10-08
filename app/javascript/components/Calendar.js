@@ -12,10 +12,10 @@ class eventCalendar extends React.Component {
   state = {
     school_data: {
       name: "",
-      events: [],
-      showEventForm: false,
-      eventFormData: {}
-    }
+      events: []
+    },
+    showEventForm: false,
+    eventFormData: {}
   }
 
   componentDidMount(){
@@ -55,6 +55,30 @@ End: ${endString}`
     })
   }
 
+  createEvent = eventData => {
+    const dist_id = this.props.match.params.dist_id
+    const school_id = this.props.match.params.school_id
+    $.ajax({
+      type: 'POST',
+      url: `/api/districts/${dist_id}/schools/${school_id}/events`,
+      data: {
+        event: eventData
+      },
+      context: this,
+      success: resp => {
+        if (resp.approved) {
+          this.setState({
+            school_data: {
+              ...this.state.school_data,
+              events: [...this.state.school_data.events, resp]
+            }
+          });
+        }
+        this.setState({showEventForm: false});
+      }
+    })
+  }
+
   closeOnClick = e => {
     if (e.target.id === "eventGreyBackground") {
       this.setState({showEventForm: false})
@@ -84,6 +108,7 @@ End: ${endString}`
             <EventForm
               eventData={this.state.eventFormData}
               closeOnClick={this.closeOnClick}
+              createEvent={this.createEvent.bind(this)}
             /> : null}
         </div>
       </div>
