@@ -2,10 +2,11 @@ class Event < ApplicationRecord
   belongs_to :organizer, class_name: "User", foreign_key: :organizer_id, optional: true
   belongs_to :eventable, polymorphic: true
 
-  after_create :set_approved_to_false
+  after_create :set_defaults
 
-  def set_approved_to_false
+  def set_defaults
     self.approved ||= false
+    self.location ||= ""
     self.save
   end
 end
