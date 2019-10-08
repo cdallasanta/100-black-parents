@@ -8,12 +8,13 @@ class EventForm extends React.Component {
     this.state = {
       title:"",
       start: props.eventData.start,
-      end: props.eventData.end
+      end: props.eventData.end,
+      location: ""
     }
   }
 
   onStartChange = date => this.setState({ start: date })
-  onTitleChange = e => this.setState({ title: e.target.value })
+  onChange = e => this.setState({ [e.target.name]: e.target.value })
   onEndChange = date => this.setState({ end: date })
   onClick = e =>{
     e.preventDefault();
@@ -30,7 +31,11 @@ class EventForm extends React.Component {
               type="text" name="title"
               value={this.state.name}
               onChange={this.onTitleChange} /><br />
-            Event Start: <DateTimePicker
+            Location: <input
+              type="text" name="location"
+              value={this.state.name}
+              onChange={this.onTitleChange} /><br />
+            Start Time: <DateTimePicker
               calendarIcon={null}
               required={true}
               value={this.state.start}
@@ -38,7 +43,7 @@ class EventForm extends React.Component {
               disableClock={true}
               calendarType={"US"}
             /><br />
-            Event End: <DateTimePicker
+            End Time: <DateTimePicker
               calendarIcon={null}
               required={true}
               value={this.state.end}

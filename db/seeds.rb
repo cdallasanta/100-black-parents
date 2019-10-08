@@ -160,9 +160,9 @@ u.schools << School.all.last
 # events
 Event.create(eventable:District.find(1), title:"District Event", organizer_id:1, allDay: false, start:Time.parse("Sept 8 2019 10:19"), end:Time.parse("Sept 8 2019 11:19"))
 
-Event.create(eventable:School.find(1), title:"School Event", organizer_id:School.find(1).site_rep.id, allDay: false, start:Time.parse("Sept 10 2019 10:19"), end:Time.parse("Sept 11 2019 11:19"))
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, allDay: false, start:Time.parse("Sept 11 2019 10:19"), end:Time.parse("Sept 12 2019 11:19"))
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, allDay: false, start:Time.parse("Sept 12 2019 10:19"), end:Time.parse("Sept 13 2019 11:19"))
+Event.create(eventable:School.find(1), title:"School Event", organizer_id:School.find(1).site_rep.id, start:Time.parse("Sept 10 2019 10:19"), end:Time.parse("Sept 11 2019 11:19"))
+Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Sept 11 2019 10:19"), end:Time.parse("Sept 12 2019 11:19"))
+Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Sept 12 2019 10:19"), end:Time.parse("Sept 13 2019 11:19"))
 
 #blogs
 Blog.create(blogable:District.find(1), title:"District Blog", author_id:1, content: "Lorem Ipsum")

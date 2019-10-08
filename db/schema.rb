@@ -72,9 +72,8 @@ ActiveRecord::Schema.define(version: 2019_09_24_175102) do
     t.integer "organizer_id"
     t.datetime "start"
     t.datetime "end"
-    t.text "description"
+    t.string "location"
     t.boolean "approved"
-    t.boolean "allDay"
     t.string "eventable_type"
     t.bigint "eventable_id"
     t.datetime "created_at", null: false
