@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import DateTimePicker from 'react-datetime-picker';
 
 class EventForm extends React.Component {
@@ -15,7 +16,18 @@ class EventForm extends React.Component {
   onEndChange = date => this.setState({ end: date })
   onClick = e =>{
     e.preventDefault();
-    debugger;
+    const dist_id = this.props.match.params.dist_id
+    const school_id = this.props.match.params.school_id
+    $.ajax({
+      type: 'POST',
+      url: `/api/districts/${dist_id}/schools/${school_id}/events`,
+      data: {
+        event: this.state
+      },
+      success: resp => {
+        debugger;
+        }
+      })
   }
 
   render(){
