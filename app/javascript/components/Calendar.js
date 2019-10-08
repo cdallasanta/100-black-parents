@@ -36,7 +36,7 @@ class eventCalendar extends React.Component {
     const endString = moment(endDate, 'HH:mm').format('h:mm A');
 
     return (
-`${eventData.location}
+`Location: ${eventData.location}
 Start: ${startString}
 End: ${endString}`
     )

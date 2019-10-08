@@ -1,7 +1,7 @@
 ActiveAdmin.register Event do
   scope_to :current_user, association_method: :activeadmin_events
 
-  permit_params :title, :organizer_id, :start, :end, :description, :approved, :allDay
+  permit_params :title, :organizer_id, :start, :end, :location, :approved, :allDay
 
   config.sort_order = 'start_asc'
   index title: "Upcoming Events" do
@@ -30,7 +30,7 @@ ActiveAdmin.register Event do
   filter :title
   filter :start
   filter :end
-  filter :description
+  filter :location
   filter :approved
   
   batch_action :approve do |ids|
