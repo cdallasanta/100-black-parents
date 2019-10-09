@@ -8,6 +8,7 @@ School.create(
   homepage_url: "http://adamses.seattleschools.org/",
   grade_level: "elementary"
 )
+p "Districts created"
 
 # elementary seeds
 School.create(
@@ -81,6 +82,7 @@ School.create(
   homepage_url: "https://coees.seattleschools.org/",
   grade_level: "elementary"
 )
+p "Elementary schools created"
 
 # k-8 schools
 School.create(
@@ -100,6 +102,7 @@ School.create(
   homepage_url: "https://borenstemk8.seattleschools.org/",
   grade_level: "k-8"
 )
+p "K-8 schools created"
 
 # middle schools
 School.create(
@@ -119,6 +122,7 @@ School.create(
   homepage_url: "https://dennyms.seattleschools.org/",
   grade_level: "middle"
 )
+p "Middle schools created"
 
 # high schools
 School.create(
@@ -138,6 +142,7 @@ School.create(
   homepage_url: "https://centerhs.seattleschools.org/",
   grade_level: "high"
 )
+p "High schools created"
 
 
 # users
@@ -157,13 +162,19 @@ User.create(name:"Guest", email:"g@email.com", password:"password")
 u = User.create(name:"Site Rep", email:"sr@email.com", password:"password", permissions:"site_rep")
 u.schools << School.all.last
 
-# events
-Event.create(eventable:District.find(1), title:"District Event", organizer_id:1, allDay: false, start:Time.parse("Sept 8 2019 10:19"), end:Time.parse("Sept 8 2019 11:19"))
+p "Users created"
 
-Event.create(eventable:School.find(1), title:"School Event", organizer_id:School.find(1).site_rep.id, allDay: false, start:Time.parse("Sept 10 2019 10:19"), end:Time.parse("Sept 11 2019 11:19"))
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, allDay: false, start:Time.parse("Sept 11 2019 10:19"), end:Time.parse("Sept 12 2019 11:19"))
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, allDay: false, start:Time.parse("Sept 12 2019 10:19"), end:Time.parse("Sept 13 2019 11:19"))
+# events
+Event.create(eventable:District.find(1), title:"District Event", organizer_id:1, start:Time.parse("Oct 18 2019 10:19"), end:Time.parse("Oct 18 2019 11:19"))
+
+Event.create(eventable:School.find(1), title:"School Event", organizer_id:School.find(1).site_rep.id, start:Time.parse("Oct 10 2019 10:19"), end:Time.parse("Oct 11 2019 11:19"))
+Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 11 2019 10:19"), end:Time.parse("Oct 12 2019 11:19"))
+Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 12 2019 10:19"), end:Time.parse("Oct 13 2019 11:19"))
+
+p "Events created"
 
 #blogs
 Blog.create(blogable:District.find(1), title:"District Blog", author_id:1, content: "Lorem Ipsum")
 Blog.create(blogable:School.find(1), title:"School Blog", author_id:1, content: "Lorem Ipsum")
+
+p "Blogs created"

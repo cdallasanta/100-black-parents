@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Event = ({event}) => {
+const EventCard = ({event}) => {
   const eventStart = new Date(event.start);
   const shortMonth = eventStart.toLocaleString('default', { month: 'short' });
   const longMonth = eventStart.toLocaleString('default', { month: 'long' });
@@ -29,4 +29,4 @@ const Event = ({event}) => {
   )
 }
 
-export default Event;
+export default EventCard;

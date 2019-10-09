@@ -1,11 +1,11 @@
 import React from 'react';
-import Blog from '../components/Blog'
+import BlogCard from '../components/BlogCard'
 import '../stylesheets/blogs.scss'
 
 const BlogList = ({blogs}) => {
   function renderBlogs() {
     return blogs.map((b, i) => {
-      return <Blog blog={b} key={i} />
+      return <BlogCard blog={b} key={i} />
     })
   }
 

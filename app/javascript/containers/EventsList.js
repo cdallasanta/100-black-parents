@@ -1,11 +1,11 @@
 import React from 'react';
-import Event from '../components/Event';
+import EventCard from '../components/EventCard';
 import '../stylesheets/events.scss'
 
 const EventsList = ({events}) => {
   function renderEvents() {
     return events.map((e, i) => {
-      return <Event event={e} key={i} />
+      return <EventCard event={e} key={i} />
     })
   }
 

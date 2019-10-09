@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Blog = ({blog}) => {
+const BlogCard = ({blog}) => {
   return (
     <div className="blog-card">
       <div className="blog-title">
@@ -13,4 +13,4 @@ const Blog = ({blog}) => {
   )
 }
 
-export default Blog;
+export default BlogCard;
