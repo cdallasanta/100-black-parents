@@ -1,4 +1,4 @@
-class Api::EventsController < ApiController
+class EventsController < ApplicationController
   def index
     render json: Event
       .where(eventable_id: params[:school_id], eventable_type:"School", approved:true)

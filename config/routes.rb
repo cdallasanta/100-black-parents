@@ -6,22 +6,15 @@ Rails.application.routes.draw do
 
   root to: 'homepage#index'
 
-  namespace :api do
-    resources :blogs
-    resources :users do 
-      get :avatar, on: :member
-    end
-    resources :requests, only: [:create, :index]
-
-    resources :districts do
-      resources :schools do
-        resources :events, only: [:index, :create]
-      end
-    end
+  resources :blogs
+  resources :users do 
+    get :avatar, on: :member
   end
+  resources :requests, only: [:create]
 
-  # This is for using React Router on heroku, it defaults to using the index.html file in the client
-  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
-    !request.xhr? && request.format.html?
+  resources :districts do
+    resources :schools do
+      resources :events, only: [:index, :create]
+    end
   end
 end
