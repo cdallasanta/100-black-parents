@@ -5,6 +5,7 @@ import Ad from '../components/Ad';
 import BlogList from '../containers/BlogList';
 import EventsList from '../containers/EventsList';
 import SchoolSelector from '../components/SchoolSelector';
+import RequestForm from '../components/RequestForm';
 
 class SchoolContainer extends React.Component {
   state = {
@@ -15,11 +16,15 @@ class SchoolContainer extends React.Component {
       site_rep: "",
       district: {id:""}
     },
-    showRequestsForm: false
+    showRequestForm: false
   }
 
   siteRepClick(e) {
     e.preventDefault();
+    this.setState({showRequestForm: true})
+  }
+
+  createRequest() {
     $.ajax({
       type: 'POST',
       url: '/api/requests',
@@ -57,6 +62,12 @@ class SchoolContainer extends React.Component {
     }
   }
 
+  closeOnClick = e => {
+    if (e.target.id === "requestGreyBackground") {
+      this.setState({showRequestForm: false})
+    }
+  }
+
   render(){
     return (
       <div id="school-page">
@@ -66,11 +77,11 @@ class SchoolContainer extends React.Component {
             contact={this.state.school_data.site_rep}
             request={this.state.school_data.request}
             siteRepClick={this.siteRepClick.bind(this)} />
-          {this.state.showEventForm ?
+          {this.state.showRequestForm ?
             <RequestForm
-              eventData={this.state.eventFormData}
+              requestData={this.state.requestFormData}
               closeOnClick={this.closeOnClick}
-              createEvent={this.createEvent.bind(this)}
+              createRequest={this.createRequest.bind(this)}
             /> : null}
           <Ad size="banner" />
         </div>
