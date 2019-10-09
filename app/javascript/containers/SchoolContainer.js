@@ -14,7 +14,8 @@ class SchoolContainer extends React.Component {
       events: [],
       site_rep: "",
       district: {id:""}
-    }
+    },
+    showRequestsForm: false
   }
 
   siteRepClick(e) {
@@ -65,6 +66,12 @@ class SchoolContainer extends React.Component {
             contact={this.state.school_data.site_rep}
             request={this.state.school_data.request}
             siteRepClick={this.siteRepClick.bind(this)} />
+          {this.state.showEventForm ?
+            <RequestForm
+              eventData={this.state.eventFormData}
+              closeOnClick={this.closeOnClick}
+              createEvent={this.createEvent.bind(this)}
+            /> : null}
           <Ad size="banner" />
         </div>
         <div id="sidebar">
