@@ -6,6 +6,8 @@ class RequestForm extends React.Component {
     super(props);
     this.state = {
       title:"",
+      start: props.eventData.start,
+      end: props.eventData.end,
       location: ""
     }
   }
@@ -15,14 +17,14 @@ class RequestForm extends React.Component {
   }
   onClick = e =>{
     e.preventDefault();
-    this.props.createRequest(this.state);
+    this.props.createEvent(this.state);
   }
 
   render(){
     return(
       <div id="requestGreyBackground" className="requestGreyBackground" onClick={e => this.props.closeOnClick(e)}>
         <div className={"requestForm"}>
-          <h3>New Request</h3>
+          <h3>New Event</h3>
           <form>
             Event Title: <input
               type="text" name="title"
