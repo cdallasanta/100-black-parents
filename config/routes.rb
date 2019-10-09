@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
   ActiveAdmin.routes(self)
-  # devise_for :users
+  devise_for :users
 
   default_url_options :host => "localhost:3000"
 

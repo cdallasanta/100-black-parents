@@ -31,7 +31,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Devise for user authentication
 gem "devise", ">= 4.7.1"
-gem 'devise_token_auth'
 
 # Active_admin for approvals and management
 gem 'activeadmin'
