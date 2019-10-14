@@ -10,6 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ * require_tree was removed because of active_admin overwriting. All files must be required here
+ *
  *= require_self
- *= require_tree .
+ *= require index
+ *= require calendar
+ *= require login
+ *= require selector
  */

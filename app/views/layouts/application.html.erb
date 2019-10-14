@@ -5,12 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag params[:controller], :media => "all"  if stylesheet_exists?(params[:controller]) %>
-    <%= javascript_include_tag params[:controller]  if javascript_exists?(params[:controller]) %>
-    
-    <% if content_for?(:head) %>
-      <%= yield(:head) %>
-    <% end %> 
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+
   </head>
 
   <body>
