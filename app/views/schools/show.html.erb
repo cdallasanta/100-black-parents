@@ -13,7 +13,10 @@
 
   <%= render "partials/sidebar", school: @school, district_id: @school.district.id, schools: @school.district.schools %>
 
-  <%= render 'partials/blogs', blogs: @school.blogs %>
+  <div id="blogs-section">
+    <h3>Blogs</h3>
+    <%= render @school.blogs %>
+  </div>
   <div id="events-section">
     <h3>Events</h3>
     <%= render @school.events %>
