@@ -11,18 +11,20 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/header' %>
-  
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
+    <div id="page-wrapper">
+      <%= render partial: 'layouts/header' %>
     
-    <%= yield %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      
+      <%= yield %>
 
-    
-    <%= render partial: 'layouts/footer' %>
+      
+    </div>
+      <%= render partial: 'layouts/footer' %>
   </body>
 </html>

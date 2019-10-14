@@ -1,18 +1,27 @@
+html, body {
+  height: 100%;
+}
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  position: relative;
-  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-.App {
-  // this is set to the same height as the footer so that it stays stuck to the bottom
-  padding-bottom: 100px;
+#page-wrapper {
+  flex: 1 0 auto;
+  background: lightblue;
 }
 
 header {
@@ -29,12 +38,11 @@ header {
 }
 
 footer {
-  height: 100px;
   width: 100%;
+  height: 100px;
   background: black;
   color: white;
-  position: absolute;
-  bottom: 0;
+  flex-shrink: 0;
 }
 
 #school-page, #district-page {
@@ -45,8 +53,6 @@ footer {
   "title title title"
   "blogs events sidebar";
 
-  background: lightblue;
-  min-height: 100vh;
 }
 
 #contact-div {
