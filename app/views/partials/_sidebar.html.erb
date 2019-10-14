@@ -3,11 +3,11 @@
   <div id="navMenu">
     <a href=`/districts/1`>District Page</a><br />
     <a href=`/districts/1/calendar`>District Calendar</a><br />
-    <% if school %>
+    <% if @school %>
       <div id="nav-contact">
-        <strong>Phone: </strong><%= school.phone %><br />
-        <strong>Address: </strong><%= school.address %><br />
-        <a href=<%= school.homepage_url %> target="_">Homepage</a>
+        <strong>Phone: </strong><%= @school.phone %><br />
+        <strong>Address: </strong><%= @school.address %><br />
+        <a href=<%= @school.homepage_url %> target="_">Homepage</a>
       </div>
     <% end %>
   </div>
