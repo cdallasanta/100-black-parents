@@ -17,4 +17,6 @@
  *= require calendar
  *= require login
  *= require selector
+ *= require top_banner
+ *= require sidebar
  */

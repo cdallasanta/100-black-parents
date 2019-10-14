@@ -1,11 +1,3 @@
-html, body {
-  height: 100%;
-}
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -53,53 +45,6 @@ footer {
   "title title title"
   "blogs events sidebar";
 
-}
-
-#contact-div {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-
-  * {
-    align-self: center;
-  }
-}
-
-#contact-info {
-  text-align: left;
-  margin-left: 10px;
-}
-
-#top-banner {
-  grid-area: title;
-  text-align: center;
-  background: darkblue;
-  color: white;
-
-  .ad {
-    display:inline-block;
-  }
-}
-
-#sidebar {
-  grid-area: sidebar;
-  margin: 10px 0px;
-
-  .link-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
-    display: inline;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.collapsible {
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  max-height: 0;
 }
 
 /* ad styling */

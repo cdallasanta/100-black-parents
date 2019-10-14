@@ -1,0 +1,25 @@
+#contact-div {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  * {
+    align-self: center;
+  }
+}
+
+#contact-info {
+  text-align: left;
+  margin-left: 10px;
+}
+
+#top-banner {
+  grid-area: title;
+  text-align: center;
+  background: darkblue;
+  color: white;
+
+  .ad {
+    display:inline-block;
+  }
+}

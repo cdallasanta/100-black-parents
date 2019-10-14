@@ -1,0 +1,20 @@
+#sidebar {
+  grid-area: sidebar;
+  margin: 10px 0px;
+
+  .link-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.collapsible {
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  max-height: 0;
+}
