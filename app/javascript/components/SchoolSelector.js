@@ -43,32 +43,7 @@ class SchoolSelector extends React.Component {
 
   dropdownForm = () => {
     return (
-      <form id="school-selector">
-        <div>
-          <label htmlFor="grade_level">Select grade level: </label>
-          <select value={this.state.grade_level} onChange={this.handleChange} name="grade_level">
-            <option value=""></option>
-            <option value="elementary">Elementary</option>
-            <option value="k-8">K-8</option>
-            <option value="middle">Middle</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-
-        {this.state.grade_level !== "" ?
-          <div>
-            <label htmlFor="school_id">Select your school: </label>
-            <select value={this.state.school_id} onChange={this.handleChange} name="school_id">
-              <option value=""></option>
-              {this.schoolsForSelect()}
-            </select>
-          </div>
-          :
-          null
-        }
-
-        <input type="submit" value="Select School" onClick={e=>this.handleSubmit(e)} />
-      </form>
+      
     )
   }
 

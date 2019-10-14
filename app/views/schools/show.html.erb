@@ -1,18 +1,16 @@
 <div id="school-page">
   <div id="top-banner">
-    <h1>{this.state.school_data.name}</h1>
-    <ContactInfo
-      contact={this.state.school_data.site_rep}
-      request={this.state.school_data.request}
-      siteRepClick={this.siteRepClick.bind(this)} />
-    {this.state.showEventForm ?
+    <h1><%= @school.name %></h1>
+    <%= render "partials/contact_info", contact: @school.site_rep %>
+    <!-- {this.state.showEventForm ?
       <RequestForm
         eventData={this.state.eventFormData}
         closeOnClick={this.closeOnClick}
         createEvent={this.createEvent.bind(this)}
-      /> : null}
+      /> : null} -->
     <div class="banner"></div>
   </div>
+  <!--
   <div id="sidebar">
     <NavigationMenu
       school={this.state.school_data}
@@ -21,6 +19,7 @@
     <div class="panel"></div>
     <div class="panel"></div>
   </div>
+  -->
   <%= render partial: 'partials/blogs' %>
   <%= render partial: 'partials/events' %>
 </div>

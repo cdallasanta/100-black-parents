@@ -22,13 +22,7 @@ const ContactInfo = ({contact, siteRepClick, request}) => {
 
   function contactDiv() {
     return (
-      <div id="contact-div">
-        <img src={contact.avatar_url} alt="rep-avatar" />
-        <div id="contact-info">
-          <strong>Rep Name:</strong> {contact.name}<br />
-          <strong>Rep Email:</strong> {contact.email}
-        </div>
-      </div>
+
     )
   }
 
