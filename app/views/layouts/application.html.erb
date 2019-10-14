@@ -5,10 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag params[:controller], :media => "all"  if stylesheet_exists?(params[:controller]) %>
+    <%= javascript_include_tag params[:controller]  if javascript_exists?(params[:controller]) %>
   </head>
 
   <body>
@@ -22,5 +20,8 @@
     <% end %>
     
     <%= yield %>
+
+    
+    <%= render partial: 'layouts/footer' %>
   </body>
 </html>
