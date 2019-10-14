@@ -26,13 +26,6 @@ class SchoolSelector extends React.Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  schoolsForSelect = () => {
-    const schools = this.state.schools.filter(s => s.grade_level === this.state.grade_level)
-
-    return schools.map((school, i) => {
-      return <option value={school.id} key={i}>{school.name}</option>
-    })
-  }
 
   handleSubmit = e => {
     e.preventDefault();
