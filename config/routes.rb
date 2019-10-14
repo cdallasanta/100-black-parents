@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   default_url_options :host => "localhost:3000"
 
+  # TODO will need to change this once other districts are added
   root :to => redirect('/districts/1')
 
   resources :blogs

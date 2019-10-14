@@ -14,6 +14,7 @@ $(function(){
   $('#selector-form').submit(function(e) {
     e.preventDefault();
     if ($('#school-selector').val() != "") {
+      // TODO, district_id needs changing once more districts are added
       location.href = `/districts/1/schools/${$('#school-selector').val()}`;
     }
   })
