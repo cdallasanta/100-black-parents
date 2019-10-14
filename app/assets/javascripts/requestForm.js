@@ -9,33 +9,31 @@ openRequestForm = () => {
 }
 
 createRequest = e => {
-  preventDefault();
-  debugger;
-  // const dist_id = this.props.match.params.dist_id
-  // const school_id = this.props.match.params.school_id
-  // $.ajax({
-  //   type: 'POST',
-  //   url: `/api/districts/${dist_id}/schools/${school_id}/events`,
-  //   data: {
-  //     event: eventData
-  //   },
-  //   context: this,
-  //   success: resp => {
-  //     if (resp.approved) {
-  //       this.setState({
-  //         school_data: {
-  //           ...this.state.school_data,
-  //           events: [...this.state.school_data.events, resp]
-  //         }
-  //       });
-  //     }
-  //     this.setState({showEventForm: false});
-  //   }
-  // })
+  e.preventDefault();
+  $("#submit-request").val("Submitting Request...");
+  $("#submit-request").attr("disabled", true);
+  const school_id = $('#school-id').val();
+  const user_id = $('#user-id').val();
+  const notes = $('#notes').val();
+  $.ajax({
+    type: 'POST',
+    url: `/requests`,
+    data: {
+      request: {
+        user_id: user_id,
+        school_id: school_id,
+        notes: notes
+      }
+    },
+    success: resp => {
+      $('#requestGreyBackground').css('visibility', 'hidden');
+      $('#contact-info').replaceWith( "<div id='contact-info'>Your form has been submitted for approval.</div>" );
+    }
+  })
 }
 
 $(function(){
   $('#request-form-button').click(openRequestForm);
   $('#requestGreyBackground').click(closeOnClick);
-  $('#requestForm').submit(createRequest);
+  $('#requestForm').submit(e => createRequest(e));
 });

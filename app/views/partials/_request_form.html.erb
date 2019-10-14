@@ -1,4 +1,4 @@
-<div>
+<div id="contact-info">
   There is no site representative for this site. Claim it <button type="button" id="request-form-button">here!</button>
 </div>
 
@@ -7,10 +7,14 @@
     <h3>Request to become a Site Representative</h3>
     <% if user_signed_in? %>
       <form id="requestForm">
-        <input type="hidden" value=`${@school.id` id="school-id">
-        <input type="hidden" value=`${current_user.id` id="user-id">
+        <input type="hidden" value=<%= @school.id %> id="school-id">
+        <input type="hidden" value=<%= current_user.id %> id="user-id">
+        <strong><%= @school.name %></strong><br />
+        <strong><%= current_user.name %></strong><br />
+        How are you affiliated with this school?<br />
+        <input type="textarea" id="notes"><br />
 
-        <input type="submit" value="Submit Request" />
+        <input type="submit" value="Submit Request" id="submit-request"/>
       </form>
     <% else %>
       Please <a href="/users/sign_in">sign in</a> first.
