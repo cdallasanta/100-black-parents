@@ -12,21 +12,7 @@ const NavigationMenu = props => {
   }
 
   return(
-    <div id="navMenu">
-      <Link to={`/districts/${props.district_id}`}>District Page</Link><br />
-      <Link to={`/districts/${props.district_id}/calendar`}>District Calendar</Link><br />
-      <button 
-        type="button"
-        className="link-button"
-        onClick={toggleContact}>
-          School Info
-        </button><br />
-      <div id="nav-contact" className="collapsible collapsed">
-        <strong>Phone: </strong>{props.school.phone}<br />
-        <strong>Address: </strong>{props.school.address}<br />
-        <a href={props.school.homepage_url} target="_">Homepage</a>
-      </div>
-    </div>
+    
   )
 }
 

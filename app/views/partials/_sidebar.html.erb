@@ -1,8 +1,16 @@
 <div id="sidebar">
-  <!-- <NavigationMenu
-    school={this.state.school_data}
-    district_id={this.state.school_data.district.id} /> -->
   <%= render "partials/school_selector", schools:schools %>
+  <div id="navMenu">
+    <a href=`/districts/1`>District Page</a><br />
+    <a href=`/districts/1/calendar`>District Calendar</a><br />
+    <% if school %>
+      <div id="nav-contact">
+        <strong>Phone: </strong><%= school.phone %><br />
+        <strong>Address: </strong><%= school.address %><br />
+        <a href=<%= school.homepage_url %> target="_">Homepage</a>
+      </div>
+    <% end %>
+  </div>
   <div class="ad panel">Panel Ad</div>
   <div class="ad panel">Panel Ad</div>
 </div>
