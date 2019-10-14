@@ -1,0 +1,21 @@
+<div id="district-page">
+  <div id="top-banner">
+    <h1><%= @district.name %></h1>
+    <div class="ad banner">Banner Ad</div>
+  </div>
+
+  <%= render "partials/sidebar",  district_id: @district.id, schools: @district.schools %>
+
+  <div id="blogs-section">
+    <h3>Blogs</h3>
+    <div id="blogs-div">
+      <%= render @district.blogs %>
+    </div>
+  </div>
+  <div id="events-section">
+    <h3>Events</h3>
+    <div id="events-div">
+      <%= render @district.events %>
+    </div>
+  </div>
+</div>
