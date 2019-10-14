@@ -1,8 +1,8 @@
-<form id="school-selector">
+<form id="selector-form">
   <div>
-    <label for="grade_level">Select grade level: </label>
-    <select name="grade_level" id="grade_selector">
-      <option value="" selected></option>
+    <label for="grade-level">Select grade level: </label>
+    <select name="grade-level" id="grade-selector">
+      <option value="" selected>All Schools</option>
       <option value="elementary">Elementary</option>
       <option value="k-8">K-8</option>
       <option value="middle">Middle</option>
@@ -11,10 +11,12 @@
   </div>
 
   <div>
-    <select name="school_selector" id="school_selector">
+    <select name="school-selector" id="school-selector">
       <option value="" selected></option>
-      <%= schools.each do |school| %>
-        <option value=<%= school.id %>><%= school.name %></option>
+      <%= schools.sort_by{|s| s.name }.each do |school| %>
+        <option value=<%= school.id %> data-grade-level=<%= school.grade_level %>>
+          <%= school.name %>
+        </option>
       <% end %>
     </select>
   </div>

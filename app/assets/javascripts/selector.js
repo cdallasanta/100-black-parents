@@ -1,23 +1,20 @@
-let gradeLevel = "";
-
-schoolsForSelect = () => {
-  const schools = this.state.schools.filter(s => s.grade_level === this.state.grade_level)
-
-  return schools.map((school, i) => {
-    return <option value={school.id} key={i}>{school.name}</option>
-  })
-}
-
 $(function(){
-  $('#grade_selector').change(function() {
+  $('#grade-selector').change(function() {
     var filter = $(this).val();
-    $('option').each(function() {
-      if ($(this).val() == filter) {
+    $('#school-selector option').each(function() {
+      if ($(this).data('grade-level') == filter || filter == "") {
         $(this).show();
       } else {
         $(this).hide();
       }
-      $('#school_selector').val(filter);
+      $('#school-selector').val(filter);
     })
+  })
+
+  $('#selector-form').submit(function(e) {
+    e.preventDefault();
+    if ($('#school-selector').val() != "") {
+      location.href = `/districts/1/schools/${$('#school-selector').val()}`;
+    }
   })
 })
