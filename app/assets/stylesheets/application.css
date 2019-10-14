@@ -19,4 +19,6 @@
  *= require selector
  *= require top_banner
  *= require sidebar
+ *= require blog_cards
+ *= require event_cards
  */
