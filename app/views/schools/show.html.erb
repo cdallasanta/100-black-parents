@@ -10,9 +10,12 @@
       /> : null} -->
     <div class="ad banner">Banner Ad</div>
   </div>
-  
+
   <%= render "partials/sidebar", school: @school, district_id: @school.district.id, schools: @school.district.schools %>
 
-  <%= render partial: 'partials/blogs' %>
-  <%= render partial: 'partials/events' %>
+  <%= render 'partials/blogs', blogs: @school.blogs %>
+  <div id="events-section">
+    <h3>Events</h3>
+    <%= render @school.events %>
+  </div>
 </div>

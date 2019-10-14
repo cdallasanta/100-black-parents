@@ -1,0 +1,19 @@
+<div class="event-card">
+  <div class="event-big-date">
+    <div class="month">
+      <%= event.start.strftime("%-b") %>
+    </div>
+    <div class="date">
+      <%= event.start.strftime("%-d") %>
+    </div>
+  </div>
+  <div class="event-details">
+    <div class="event-title">
+      <%= event.title %>
+    </div>
+    <div class="event-full-date">
+      <%= event.start.strftime("%l:%M%P, %B %-d") %>
+    </div>
+  </div>
+</div>
+</div>

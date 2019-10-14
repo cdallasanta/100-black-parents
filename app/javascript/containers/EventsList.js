@@ -10,12 +10,7 @@ const EventsList = ({events}) => {
   }
 
   return (
-    <div id="events-section">
-      <h3>Events</h3>
-      <div id="events-div">
-        {renderEvents()}
-      </div>
-    </div>
+    
   )
 }
 

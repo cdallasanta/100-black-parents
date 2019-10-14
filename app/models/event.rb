@@ -9,4 +9,8 @@ class Event < ApplicationRecord
     self.location ||= ""
     self.save
   end
+
+  def to_partial_path
+    'partials/event'
+  end
 end
