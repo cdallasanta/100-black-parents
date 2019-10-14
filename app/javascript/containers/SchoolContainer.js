@@ -59,32 +59,7 @@ class SchoolContainer extends React.Component {
 
   render(){
     return (
-      <div id="school-page">
-        <div id="top-banner">
-          <h1>{this.state.school_data.name}</h1>
-          <ContactInfo
-            contact={this.state.school_data.site_rep}
-            request={this.state.school_data.request}
-            siteRepClick={this.siteRepClick.bind(this)} />
-          {this.state.showEventForm ?
-            <RequestForm
-              eventData={this.state.eventFormData}
-              closeOnClick={this.closeOnClick}
-              createEvent={this.createEvent.bind(this)}
-            /> : null}
-          <Ad size="banner" />
-        </div>
-        <div id="sidebar">
-          <NavigationMenu
-            school={this.state.school_data}
-            district_id={this.state.school_data.district.id} />
-          <SchoolSelector schools={this.state.school_data.district.schools} dist_id={this.state.school_data.district.id} history={this.props.history}/>
-          <Ad size="panel" />
-          <Ad size="panel" />
-        </div>
-        <BlogList blogs={this.state.school_data.blogs} />
-        <EventsList events={this.state.school_data.events} />
-      </div>
+      
     )
   }
 }

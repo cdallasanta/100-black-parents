@@ -4,6 +4,6 @@ class SchoolsController < ApplicationController
   end
 
   def show
-    render json: School.find(params[:id])
+    @school = School.find(params[:id])
   end
 end
