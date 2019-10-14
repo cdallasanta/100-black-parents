@@ -4,4 +4,22 @@
     <strong>Rep Name:</strong> <%= contact.name %><br />
     <strong>Rep Email:</strong> <%= contact.email %>
   </div>
+
+  <div id="requestGreyBackground" class="requestGreyBackground">
+    <div class="requestForm">
+      <h3>New Event</h3>
+      <form>
+        Event Title: <input
+          type="text" name="title"
+          value={this.state.title}
+          onChange={this.onChange} /><br />
+        Location: <input
+          type="text" name="location"
+          value={this.state.location}
+          onChange={this.onChange} /><br />
+
+        <input type="submit" value="Submit Request" />
+      </form>
+    </div>
+  </div>
 </div>
