@@ -8,7 +8,9 @@ openRequestForm = () => {
   $('#requestGreyBackground').css('visibility', 'visible');
 }
 
-createRequest = eventData => {
+createRequest = e => {
+  preventDefault();
+  debugger;
   // const dist_id = this.props.match.params.dist_id
   // const school_id = this.props.match.params.school_id
   // $.ajax({
@@ -35,4 +37,5 @@ createRequest = eventData => {
 $(function(){
   $('#request-form-button').click(openRequestForm);
   $('#requestGreyBackground').click(closeOnClick);
+  $('#requestForm').submit(createRequest);
 });

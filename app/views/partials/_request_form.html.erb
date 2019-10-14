@@ -5,10 +5,15 @@
 <div id="requestGreyBackground" class="requestGreyBackground">
   <div class="requestFormWrapper">
     <h3>Request to become a Site Representative</h3>
-    <form id="requestForm>
-      
+    <% if user_signed_in? %>
+      <form id="requestForm">
+        <input type="hidden" value=`${@school.id` id="school-id">
+        <input type="hidden" value=`${current_user.id` id="user-id">
 
-      <input type="submit" value="Submit Request" />
-    </form>
+        <input type="submit" value="Submit Request" />
+      </form>
+    <% else %>
+      Please <a href="/users/sign_in">sign in</a> first.
+    <% end %>
   </div>
 </div>
