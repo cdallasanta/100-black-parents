@@ -33,6 +33,6 @@ createRequest = eventData => {
 }
 
 $(function(){
-  $('.ad').click(openRequestForm);
+  $('#request-form-button').click(openRequestForm);
   $('#requestGreyBackground').click(closeOnClick);
 });
