@@ -21,4 +21,5 @@
  *= require sidebar
  *= require blog_cards
  *= require event_cards
+ *= require requests
  */
