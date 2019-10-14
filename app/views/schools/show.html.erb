@@ -8,18 +8,11 @@
         closeOnClick={this.closeOnClick}
         createEvent={this.createEvent.bind(this)}
       /> : null} -->
-    <div class="banner"></div>
+    <div class="ad banner">Banner Ad</div>
   </div>
-  <!--
-  <div id="sidebar">
-    <NavigationMenu
-      school={this.state.school_data}
-      district_id={this.state.school_data.district.id} />
-    <SchoolSelector schools={this.state.school_data.district.schools} dist_id={this.state.school_data.district.id} history={this.props.history}/>
-    <div class="panel"></div>
-    <div class="panel"></div>
-  </div>
-  -->
+  
+  <%= render "partials/sidebar", school: @school, district_id: @school.district.id, schools: @school.district.schools %>
+
   <%= render partial: 'partials/blogs' %>
   <%= render partial: 'partials/events' %>
 </div>
