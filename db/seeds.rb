@@ -3,7 +3,7 @@ ssd = District.create(name:"Seattle School District")
 School.create(
   name:"Adams Elementary School",
   district: ssd,
-  address: "6110 28th Ave NW Seattle, WA 98107",
+  address: "6110 28th Ave NW<br />Seattle, WA 98107",
   phone: "206-252-1300",
   homepage_url: "http://adamses.seattleschools.org/",
   grade_level: "elementary"
@@ -14,7 +14,7 @@ p "Districts created"
 School.create(
   name:"Alki Elementary School",
   district: ssd,
-  address: "3010  59th Ave SW Seattle, WA 98116",
+  address: "3010  59th Ave SW<br />Seattle, WA 98116",
   phone: "206-252-9050",
   homepage_url: "https://alkies.seattleschools.org/",
   grade_level: "elementary"
@@ -22,7 +22,7 @@ School.create(
 
 School.create(
   name: "Arbor Heights Elementary School",
-  address: "3701 SW 104th Street, Seattle, WA 98146",
+  address: "3701 SW 104th Street,<br />Seattle, WA 98146",
   phone: "206-252-9250",
   district: ssd,
   homepage_url: "https://arborheightses.seattleschools.org/",
@@ -31,7 +31,7 @@ School.create(
 
 School.create(
   name: "Daniel Bagley Elementary School",
-  address: "7821 Stone Ave N Seattle, WA 98103",
+  address: "7821 Stone Ave N<br />Seattle, WA 98103",
   phone: "206-252-5110",
   district: ssd,
   homepage_url: "http://bagleyes.seattleschools.org/",
@@ -40,7 +40,7 @@ School.create(
 
 School.create(
   name: "Beacon Hill International Elementary School",
-  address: "2025  14th Ave S Seattle, WA 98144",
+  address: "2025  14th Ave S<br />Seattle, WA 98144",
   phone: "206-252-2700",
   district: ssd,
   homepage_url: "https://beaconhilles.seattleschools.org/",
@@ -49,7 +49,7 @@ School.create(
 
 School.create(
   name: "William Cullen Bryant Elementary School",
-  address: "3311 NE 60th St Seattle, WA 98115",
+  address: "3311 NE 60th St<br />Seattle, WA 98115",
   phone: "206-252-5200",
   district: ssd,
   homepage_url: "https://bryantes.seattleschools.org/",
@@ -58,7 +58,7 @@ School.create(
 
 School.create(
   name: "Cascadia Elementary School",
-  address: "1700 N 90th St Seattle, WA 98103",
+  address: "1700 N 90th St<br />Seattle, WA 98103",
   phone: "206-413-2000",
   district: ssd,
   homepage_url: "http://cascadiaes.seattleschools.org/",
@@ -67,7 +67,7 @@ School.create(
 
 School.create(
   name: "Cedar Park Elementary School",
-  address: "13224 37th Ave NE Seattle, WA 98125​",
+  address: "13224 37th Ave NE<br />Seattle, WA 98125​",
   phone: "206-252-4300",
   district: ssd,
   homepage_url: "https://cedarparkes.seattleschools.org/",
@@ -76,7 +76,7 @@ School.create(
 
 School.create(
   name: "Frantz H. Coe Elementary School",
-  address: "2424  7th Ave W Seattle, WA 98119",
+  address: "2424  7th Ave W<br />Seattle, WA 98119",
   phone: "206-252-2000",
   district: ssd,
   homepage_url: "https://coees.seattleschools.org/",
@@ -87,7 +87,7 @@ p "Elementary schools created"
 # k-8 schools
 School.create(
   name: "Catharine Blaine",
-  address: "2550 34th Ave W Seattle, WA 98199",
+  address: "2550 34th Ave W<br />Seattle, WA 98199",
   phone: "206-252-1920",
   district: ssd,
   homepage_url: "https://blainek8.seattleschools.org/",
@@ -96,7 +96,7 @@ School.create(
 
 School.create(
   name: "Louisa Boren STEM",
-  address: "5950 Delridge Way SW Seattle, WA 98106",
+  address: "5950 Delridge Way SW<br />Seattle, WA 98106",
   phone: "206-252-8450",
   district: ssd,
   homepage_url: "https://borenstemk8.seattleschools.org/",
@@ -107,7 +107,7 @@ p "K-8 schools created"
 # middle schools
 School.create(
   name: "Jane Addams Middle School",
-  address: "11051 34th Ave NE Seattle, WA 98125",
+  address: "11051 34th Ave NE<br />Seattle, WA 98125",
   phone: "206-252-4500",
   district: ssd,
   homepage_url: "https://addamsms.seattleschools.org/",
@@ -116,7 +116,7 @@ School.create(
 
 School.create(
   name: "David T. Denny International Middle School",
-  address: "2601 SW Kenyon St Seattle, WA 98126",
+  address: "2601 SW Kenyon St<br />Seattle, WA 98126",
   phone: "206-252-9000",
   district: ssd,
   homepage_url: "https://dennyms.seattleschools.org/",
@@ -127,7 +127,7 @@ p "Middle schools created"
 # high schools
 School.create(
   name: "Ballard High School",
-  address: "1418 NW 65th St Seattle, WA 98117",
+  address: "1418 NW 65th St<br />Seattle, WA 98117",
   phone: "206-252-1000",
   district: ssd,
   homepage_url: "https://ballardhs.seattleschools.org/",
@@ -136,7 +136,7 @@ School.create(
 
 School.create(
   name: "The Center High School",
-  address: "305 Harrison St Seattle, WA 98109",
+  address: "305 Harrison St<br />Seattle, WA 98109",
   phone: "206-252-9850",
   district: ssd,
   homepage_url: "https://centerhs.seattleschools.org/",
@@ -165,11 +165,11 @@ u.schools << School.all.last
 p "Users created"
 
 # events
-Event.create(eventable:District.find(1), title:"District Event", organizer_id:1, start:Time.parse("Oct 18 2019 10:19"), end:Time.parse("Oct 18 2019 11:19"))
+Event.create(eventable:District.find(1), title:"District Event", organizer_id:1, start:Time.parse("Oct 18 2019 10:19"), end:Time.parse("Oct 18 2019 11:19"), approved: true)
 
-Event.create(eventable:School.find(1), title:"School Event", organizer_id:School.find(1).site_rep.id, start:Time.parse("Oct 10 2019 10:19"), end:Time.parse("Oct 11 2019 11:19"))
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 11 2019 10:19"), end:Time.parse("Oct 12 2019 11:19"))
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 12 2019 10:19"), end:Time.parse("Oct 13 2019 11:19"))
+Event.create(eventable:School.find(1), title:"School Event", organizer_id:School.find(1).site_rep.id, start:Time.parse("Oct 20 2019 10:19"), end:Time.parse("Oct 11 2019 11:19"), approved: true)
+Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 21 2019 10:19"), end:Time.parse("Oct 12 2019 11:19"), approved: true)
+Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 22 2019 10:19"), end:Time.parse("Oct 13 2019 11:19"), approved: true)
 
 p "Events created"
 

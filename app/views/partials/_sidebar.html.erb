@@ -1,13 +1,13 @@
 <div id="sidebar">
   <%= render "partials/school_selector", schools:schools %>
   <div id="navMenu">
-    <a href=`/districts/1`>District Page</a><br />
-    <a href=`/districts/1/calendar`>District Calendar</a><br />
     <% if @school %>
       <div id="nav-contact">
+
         <strong>Phone: </strong><%= @school.phone %><br />
-        <strong>Address: </strong><%= @school.address %><br />
-        <a href=<%= @school.homepage_url %> target="_">Homepage</a>
+        <strong>Address: </strong><%= @school.address.html_safe %><br />
+        <a href=<%= @school.homepage_url %> target="_">School Homepage</a><br />
+        <a href=`/districts/1`>District Page</a>
       </div>
     <% end %>
   </div>
