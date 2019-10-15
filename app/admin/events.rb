@@ -1,7 +1,7 @@
 ActiveAdmin.register Event do
   scope_to :current_user, association_method: :activeadmin_events
 
-  permit_params :title, :organizer_id, :start, :end, :location, :approved, :allDay
+  permit_params :title, :organizer_id, :start, :end, :location, :eventable
 
   config.sort_order = 'start_asc'
   index title: "Upcoming Events" do
@@ -23,7 +23,7 @@ ActiveAdmin.register Event do
   scope("Approved") { |scope| scope.where(approved: true) }
   scope("Not yet approved") { |scope| scope.where(approved: false) }
 
-  # This filter is currently not needed, since we only have one district
+  # TODO This filter is currently not needed, since we only have one district
   # filter :eventable_of_District_type_name, as: :string, label: "District"
   filter :eventable_of_School_type_name, as: :string, label: "School"
   filter :organizer_name, as: :string
@@ -45,5 +45,40 @@ ActiveAdmin.register Event do
       event.update(approved: false)
     end
     redirect_to collection_path, alert: "The events have been disapproved."
+  end
+
+  form do |f|
+    tabs do
+      tab 'My Schools' do
+        semantic_errors
+        f.inputs do
+          input :title
+          input :start, label: "Start date and time", as: :datetime_picker
+          input :end, label: "End date and time", as: :datetime_picker
+          input :location
+          input :eventable, collection: current_user.schools, label: "Organization"
+        end
+        actions
+      end
+
+      tab 'Admin', if: (current_user.is_admin?) do
+        semantic_errors
+        f.inputs do
+          input :title
+          input :start, label: "Start date and time", as: :datetime_picker
+          input :end, label: "End date and time", as: :datetime_picker
+          input :location
+          input :eventable_type, as: :select, collection: ["District", "School"], label: "Organization type"
+          input :eventable, collection: District.all + School.all.sort_by{|s|s.name}, label: "Organization"
+        end
+        actions
+      end
+    end
+  end
+
+  controller do
+    def create
+      binding.pry
+    end
   end
 end

@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :organizer, class_name: "User", foreign_key: :organizer_id, optional: true
-  belongs_to :eventable, polymorphic: true
+  belongs_to :eventable, polymorphic: true, optional: true
 
   after_create :set_defaults
 

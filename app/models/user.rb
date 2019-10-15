@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   after_create :set_permissions
 
+  def is_admin?
+    self.permissions == "admin"
+  end
+
   def set_permissions
     self.permissions ||= "guest"
     self.save
