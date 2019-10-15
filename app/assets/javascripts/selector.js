@@ -13,7 +13,7 @@ $(function(){
 
   $('#selector-form').submit(function(e) {
     e.preventDefault();
-    if ($('#school-selector').val() != "") {
+    if ($('#school-selector').val() != "" && $('#school-selector').val() != null) {
       // TODO, district_id needs changing once more districts are added
       location.href = `/districts/1/schools/${$('#school-selector').val()}`;
     }
