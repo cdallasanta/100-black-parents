@@ -10,7 +10,7 @@
   <div id="blogs-section">
     <h3>Blogs</h3>
     <div id="blogs-div">
-      <%= render @blogs %>
+      <%= render @blogs.first(4) %>
     </div>
   </div>
   <div id="events-section">
@@ -18,5 +18,6 @@
     <div id="events-div">
       <%= render @events %>
     </div>
+    <a href="#" id="show-more-events-link">Show more</a>
   </div>
 </div>

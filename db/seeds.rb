@@ -167,9 +167,9 @@ p "Users created"
 # events
 Event.create(eventable:District.find(1), title:"District Event", organizer_id:1, start:Time.parse("Oct 18 2019 10:19"), end:Time.parse("Oct 18 2019 11:19"), approved: true)
 
-Event.create(eventable:School.find(1), title:"School Event", organizer_id:School.find(1).site_rep.id, start:Time.parse("Oct 20 2019 10:19"), end:Time.parse("Oct 11 2019 11:19"), approved: true)
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 21 2019 10:19"), end:Time.parse("Oct 12 2019 11:19"), approved: true)
-Event.create(eventable:School.all.last, title:"School Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 22 2019 10:19"), end:Time.parse("Oct 13 2019 11:19"), approved: true)
+Event.create(eventable:School.find(1), title:"Adams Event", organizer_id:School.find(1).site_rep.id, start:Time.parse("Oct 20 2019 10:19"), end:Time.parse("Oct 21 2019 11:19"), approved: true)
+Event.create(eventable:School.all.last, title:"Center Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 21 2019 10:19"), end:Time.parse("Oct 22 2019 11:19"), approved: true)
+Event.create(eventable:School.all.last, title:"Center Event", organizer_id:School.all.last.site_rep.id, start:Time.parse("Oct 22 2019 10:19"), end:Time.parse("Oct 23 2019 11:19"), approved: true)
 
 p "Events created"
 
