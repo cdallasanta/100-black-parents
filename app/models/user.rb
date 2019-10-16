@@ -27,6 +27,10 @@ class User < ApplicationRecord
     self.permissions == "admin"
   end
 
+  def is_site_rep?
+    is_admin? || self.permissions == "site_rep"
+  end
+
   def set_defaults
     self.permissions ||= "guest"
     unless self.avatar.attached?

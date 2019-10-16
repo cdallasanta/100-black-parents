@@ -1,6 +1,9 @@
 <header>
   <% if user_signed_in? %> 
     <div>
+      <% if current_user.is_site_rep? %>
+        <%= link_to('Admin portal', admin_root_path) %>
+      <% end %>
       <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
     </div>
   <% else %>
