@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, and :trackable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   has_many :schools, foreign_key: :site_rep_id
   has_many :events, foreign_key: :organizer_id
@@ -12,6 +12,16 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   after_create :set_permissions
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+      # TODO: user Avatar
+      # user.avatar = auth.info.image
+    end
+  end
 
   def is_admin?
     self.permissions == "admin"
