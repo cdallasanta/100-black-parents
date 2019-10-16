@@ -10,6 +10,11 @@ class SchoolsController < ApplicationController
       .or(Blog.where(blogable: @school.district, blogable_type:"District"))
     @events = Event
       .where(eventable: @school, eventable_type:"School", approved:true)
-      .or(Event.where(eventable: @school.district, eventable_type:"District", approved:true))
+        .where("start > ?", Date.today)
+        .order('start ASC')
+      .or(Event.where(eventable: @school.district, eventable_type:"District", approved:true)
+        .where("start > ?", Date.today)
+        .order('start ASC')
+      )
   end
 end
