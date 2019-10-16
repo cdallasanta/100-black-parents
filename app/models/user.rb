@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  after_create :set_permissions
+  before_save :set_defaults
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -27,9 +27,11 @@ class User < ApplicationRecord
     self.permissions == "admin"
   end
 
-  def set_permissions
+  def set_defaults
     self.permissions ||= "guest"
-    self.save
+    unless self.avatar.attached?
+      self.avatar.attach(io: File.open(Rails.root.join('test_avatars/default_avatar.png')), filename: 'default_avatar.png')
+    end
   end
 
   def activeadmin_events

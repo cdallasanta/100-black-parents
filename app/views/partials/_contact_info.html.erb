@@ -1,3 +1,9 @@
 <div id="contact-div">
-  <%= contactOrForm(@school) %>
+  <div id='avatar-div'>
+    <%= image_tag user_avatar(resource, 100), class: "rounded-circle" %>
+  </div>
+  <div id='contact_info'>
+    <strong>Rep Name: </strong><%= @school.site_rep.name %><br />
+    <strong>Rep Email: </strong><%= @school.site_rep.email %>
+  </div>
 </div>
