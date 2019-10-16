@@ -29,5 +29,11 @@ module SchoolSitesV2
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # dotenv setup
+    Bundler.require(*Rails.groups)
+    if ['development', 'test'].include? ENV['RAILS_ENV']
+      Dotenv::Railtie.load
+    end
   end
 end

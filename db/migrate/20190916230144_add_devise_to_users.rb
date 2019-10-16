@@ -36,6 +36,9 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
 
+      # Omniauthable
+      t.string :provider
+      t.string :uid
       
       ## User Info
       t.string :name
