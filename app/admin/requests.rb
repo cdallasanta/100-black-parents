@@ -13,12 +13,13 @@ ActiveAdmin.register Request do
   batch_action :approve do |ids|
     batch_action_collection.find(ids).each do |request|
       newRep = User.find(request.user_id)
-      School.find(request.school_id).update(site_rep: newRep)
+      school = School.find(request.school_id)
+      school.update(site_rep: newRep)
       if newRep.permissions == "guest"
         newRep.update(permissions: "site_rep")
       end
 
-      # TODO send email with confirmation
+      UserMailer.with(user: newRep, school: school).welcome_email.deliver_later
 
       request.destroy
     end

@@ -3,7 +3,6 @@ class RequestsController < ApplicationController
 
   def create
     req = Request.create(request_params)
-    UserMailer.with(user: current_user).welcome_email.deliver_later
     render json: req
   end
 

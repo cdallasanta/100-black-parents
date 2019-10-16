@@ -4,14 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.name %></h1>
+    <h1>Hello, <%= @user.name %></h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.email %>.<br>
+      You have have been designated as the Site Representative for <%= @school.name %>.<br>
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      You now have access to the admin portal, which can be viewed <a href="one-hund-black-parents.herokuapp.com/admin">here</a>. Please use that link for managing your schools' information.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Thank you for volunteering!</p>
   </body>
 </html>
