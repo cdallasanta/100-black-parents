@@ -10,14 +10,19 @@
   <div id="blogs-section">
     <h3>Blogs</h3>
     <div id="blogs-div">
-      <%= render @blogs.first(4) %>
+      <%= render @blogs %>
     </div>
+    <% if @events.length > 4 %>
+      <a href="#" id="show-more-blogs-link">Show more</a>
+    <% end %>
   </div>
   <div id="events-section">
     <h3>Upcoming Events</h3>
     <div id="events-div">
       <%= render @events %>
     </div>
-    <a href="#" id="show-more-events-link">Show more</a>
+    <% if @events.length > 4 %>
+      <a href="#" id="show-more-events-link">Show more</a>
+    <% end %>
   </div>
 </div>

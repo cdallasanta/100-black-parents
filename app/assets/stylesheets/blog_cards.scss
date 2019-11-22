@@ -6,6 +6,10 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  .blog-card:nth-child(n+5) {
+    display: none
+  }
 }
 
 .blog-card{
