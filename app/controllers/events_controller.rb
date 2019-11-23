@@ -6,7 +6,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     if params[:school_id]
       eventable = School.find(params[:school_id])
     else
